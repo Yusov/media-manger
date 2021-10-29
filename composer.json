@@ -1,5 +1,5 @@
 {
-    "name": "alexanderyusov/mediamanager",
+    "name": "yusov/media-manager",
     "description": "Package for processing image",
     "type": "library",
     "require": {
