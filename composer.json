@@ -3,12 +3,10 @@
     "description": "Package for processing image",
     "type": "library",
     "require": {
-        "php": "^7.4",
-        "intervention/image": "^2.7",
-        "laravel/framework": "6.*",
-        "league/flysystem": "2.x-dev",
-        "ramsey/uuid": "^3.7"
+       "php": "^7.4|^8.0",
+       "ramsey/uuid": "^3.7"
     },
+    "licence": "MIT",
     "authors": [
         {
             "name": "Alexander Yusov",
