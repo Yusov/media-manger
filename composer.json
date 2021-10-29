@@ -1,0 +1,23 @@
+{
+    "name": "alexanderyusov/mediamanager",
+    "description": "Package for processing image",
+    "type": "library",
+    "require": {
+        "php": "^7.4",
+        "intervention/image": "^2.7",
+        "laravel/framework": "6.*",
+        "league/flysystem": "2.x-dev",
+        "ramsey/uuid": "^3.7"
+    },
+    "authors": [
+        {
+            "name": "Alexander Yusov",
+            "email": "yusovdj@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MediaManager\\": "src//"
+        }
+    }
+}
