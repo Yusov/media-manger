@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace MediaManager\Listeners;
 
-use App\Admin\Controllers\Helpers\MediaHelper;
 use MediaManager\Events\ImageDeleted;
+use MediaManager\Helpers\PathHelper;
 use MediaManager\Storage\StorageInterface;
 
 class ImageDeletedListener
@@ -24,9 +24,9 @@ class ImageDeletedListener
     {
         $paths = [];
         foreach ($event->configurator->getDpiSizes() as $dpiSize) {
-            $paths[] = MediaHelper::prepareFullResourceUrl($event->imageModel->toArray(), $dpiSize, $event->configurator::STORAGE);
+            $paths[] = PathHelper::prepareFullResourceUrl($event->imageModel->toArray(), $dpiSize, $event->configurator::STORAGE);
         }
-        $paths[] = MediaHelper::prepareFullResourceUrl($event->imageModel->toArray(), 'original', $event->configurator::STORAGE);
+        $paths[] = PathHelper::prepareFullResourceUrl($event->imageModel->toArray(), 'original', $event->configurator::STORAGE);
 
         if (empty($paths)) {
             return;

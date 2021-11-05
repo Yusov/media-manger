@@ -10,10 +10,11 @@ use MediaManager\Exceptions\FailedUploadFileException;
 use MediaManager\Media\WithPreparingFile;
 use MediaManager\Processors\ImageProcessor;
 use MediaManager\Storage\StorageInterface;
+use MediaManager\WithPreparingFile as WithPreparingFileTrait;
 
 class ImageSavedListener
 {
-    use WithPreparingFile;
+    use WithPreparingFileTrait;
 
     private StorageInterface $storage;
     private ImageProcessor $processor;
@@ -36,7 +37,6 @@ class ImageSavedListener
             $event->configurator::MEDIA_ORIGINAL_DPI,
             $event->extension
         );
-
         foreach ($event->configurator->getDpiSizes() as $dpiSize) {
             if (!
                 $this->storage->save(

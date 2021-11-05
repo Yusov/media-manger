@@ -10,7 +10,7 @@ use MediaManager\Config\ConfiguratorInterface;
 use MediaManager\Events\ImageDeleted;
 use MediaManager\Events\ImageSaved;
 use MediaManager\Exceptions\ExtensionFileException;
-use MediaManager\Media\WithPreparingFile;
+use MediaManager\WithPreparingFile;
 use MediaManager\MediaServiceInterface;
 use MediaManager\Processors\ImageProcessor;
 use MediaManager\Storage\StorageInterface;
