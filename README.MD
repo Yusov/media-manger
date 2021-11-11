@@ -18,7 +18,7 @@ This package can process images through the Imagic library with a custom configs
 
 Class `ImageMediaService` has a couple of methods for processing images:
 1. `upload(configurator, model, file);`
-2. `delete(configurator, model);`
+2. `delete(configurator, model);
 
 ####Helpers: 
 
