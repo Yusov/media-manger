@@ -128,6 +128,16 @@ abstract class AbstractImage implements ImageConfiguratorInterface
     }
 
     /**
+     * {@inheritDoc}
+     */
+    public function disableMain(): self
+    {
+        $this->isMain = false;
+
+        return $this;
+    }
+
+    /**
      * @return $this
      */
     abstract protected function init(): self;

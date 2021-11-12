@@ -9,6 +9,7 @@ interface ConfiguratorInterface
     public const STORAGE = 'public';
     public const MEDIA_TYPE_IMAGE = 'image';
     public const MEDIA_TYPE_IMAGE_BANNER = 'banner';
+    public const MEDIA_TYPE_IMAGE_GALLERY = 'gallery';
     public const MEDIA_TYPE_VIDEO = 'video';
     public const MEDIA_ORIGINAL_DPI = 'original';
 
@@ -50,4 +51,9 @@ interface ConfiguratorInterface
      * @return $this
      */
     public function makeIsMain(): self;
+
+    /**
+     * @return $this
+     */
+    public function disableMain(): self;
 }
