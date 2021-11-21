@@ -38,4 +38,11 @@ interface ImageConfiguratorInterface extends ConfiguratorInterface
      * @return string
      */
     public function getCategory(): string;
+
+    /**
+     * Skip resizing images
+     *
+     * @return bool
+     */
+    public function isResizable(): bool;
 }

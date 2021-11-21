@@ -30,6 +30,10 @@ class ImageSavedListener
      */
     public function handle(ImageSaved $event): void
     {
+        if (!$event->configurator->isResizable()) {
+            return;
+        }
+
         //Start cropping files
         $file = $this->initFile(
             $event->filePath,

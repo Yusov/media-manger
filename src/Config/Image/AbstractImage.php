@@ -8,14 +8,20 @@ abstract class AbstractImage implements ImageConfiguratorInterface
 {
     protected array $permittedMimes = [];
     protected bool $clearable = false;
+    protected bool $resize = true;
     protected array $dpiSizes = [];
     protected string $type;
     protected string $category;
     protected bool $isMain = false;
 
-    public function __construct(bool $clearable = false, string $category = '', string $type = self::MEDIA_TYPE_IMAGE)
-    {
+    public function __construct(
+        bool $clearable = false,
+        bool $resize = true,
+        string $category = '',
+        string $type = self::MEDIA_TYPE_IMAGE
+    ) {
         $this->clearable = $clearable;
+        $this->resize = $resize;
         $this->category = $category;
         $this->type = $type;
         $this->init();
@@ -135,6 +141,14 @@ abstract class AbstractImage implements ImageConfiguratorInterface
         $this->isMain = false;
 
         return $this;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function isResizable(): bool
+    {
+        return $this->resize;
     }
 
     /**

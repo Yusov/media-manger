@@ -6,6 +6,7 @@ namespace MediaManager\Helpers;
 
 final class PathHelper
 {
+    //TODO drop this class and prepare file path on the app side. Not in this package.
     /**
      * @param  array|null  $imageData
      * @param  string  $dpi
@@ -15,7 +16,7 @@ final class PathHelper
      */
     public static function prepareFullResourceUrl(
         ?array $imageData = null,
-        string $dpi = 'mid',
+        string $dpi = 'original',
         ?string $root = null
     ): string {
         if (!$imageData) {
