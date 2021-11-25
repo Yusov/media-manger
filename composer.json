@@ -13,9 +13,25 @@
             "email": "yusovdj@gmail.com"
         }
     ],
+    "support": {
+        "source": "http://github.com/Yusov/media-manger"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packagist.org/packages/yusov/media-manager"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "MediaManager\\": "src//"
         }
+    },
+    "config": {
+        "discard-changes": "stash",
+        "sort-packages": true,
+        "optimize-autoloader": false,
+        "secure-http": false,
+        "process-timeout": 1800
     }
 }
