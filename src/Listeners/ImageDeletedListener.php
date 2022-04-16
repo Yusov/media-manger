@@ -10,13 +10,6 @@ use MediaManager\Storage\StorageInterface;
 
 class ImageDeletedListener
 {
-    private StorageInterface $storage;
-
-    public function __construct(StorageInterface $storage)
-    {
-        $this->storage = $storage;
-    }
-
     /**
      * @param  ImageDeleted  $event
      */
@@ -24,15 +17,15 @@ class ImageDeletedListener
     {
         $paths = [];
         foreach ($event->configurator->getDpiSizes() as $dpiSize) {
-            $paths[] = PathHelper::prepareFullResourceUrl($event->imageModel->toArray(), $dpiSize, $event->configurator::STORAGE);
+            $paths[] = $event->configurator->getPath();
         }
-        $paths[] = PathHelper::prepareFullResourceUrl($event->imageModel->toArray(), 'original', $event->configurator::STORAGE);
+        $paths[] = $event->configurator->getPath();
 
         if (empty($paths)) {
             return;
         }
 
-        if (!$this->storage->bulkRemove($paths)) {
+        if (!$event->configurator->getStorage()->bulkRemove($paths)) {
             throw new \RuntimeException('Cannot remove files: ' . implode(',', $paths));
         }
     }

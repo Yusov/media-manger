@@ -50,4 +50,11 @@ interface StorageInterface
      * @return resource|null
      */
     public function openStream(string $path);
+
+    /**
+     * @param string $path
+     *
+     * @return string
+     */
+    public function url(string $path): string;
 }

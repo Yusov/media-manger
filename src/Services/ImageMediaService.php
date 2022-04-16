@@ -36,9 +36,12 @@ class ImageMediaService implements MediaServiceInterface
         if (!\in_array($file->getMimeType(), $configurator->getPermittedMimes(), true)) {
             throw new ExtensionFileException($file->getMimeType());
         }
+        //TODO refactor
 
-        $pathToSave = $this->preparedPath($model, $configurator->getType(), $configurator->getCategory());
         $fileName = $this->createFileName((string)$model->id);
+
+        $fileName = $configurator->prepareFilePath();
+
 
         //Store original file
         $stored = $this->storage->save(

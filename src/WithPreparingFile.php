@@ -15,7 +15,7 @@ trait WithPreparingFile
      *
      * @return string
      */
-    private function createFileName(?string $name = null): string
+    private function generateFileName(?string $name = null): string
     {
         if (!$name) {
             return uniqid('', true);
@@ -61,6 +61,7 @@ trait WithPreparingFile
     }
 
     /**
+     * @deprecated
      * Prepare the full path likewise public/concerns/{id}/{type(images/videos)/?{category(banner/thumb etc.)}/file.
      *
      * @param  Model  $model

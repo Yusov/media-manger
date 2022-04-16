@@ -4,26 +4,33 @@ declare(strict_types=1);
 
 namespace MediaManager\Config;
 
+use MediaManager\Storage\StorageInterface;
+
 interface ConfiguratorInterface
 {
-    public const STORAGE = 'public';
-    public const MEDIA_TYPE_IMAGE = 'image';
-    public const MEDIA_TYPE_IMAGE_BANNER = 'banner';
-    public const MEDIA_TYPE_IMAGE_GALLERY = 'gallery';
-    public const MEDIA_TYPE_VIDEO = 'video';
-    public const MEDIA_ORIGINAL_DPI = 'original';
-
     /**
      * @return array
      */
     public function getPermittedMimes(): array;
 
     /**
-     * @param  array  $permittedMimes
+     * @param array $mimes
+     *
+     * @return self
+     */
+    public function setPermittedMimes(array $mimes): self;
+
+    /**
+     * @return string
+     */
+    public function getUrlTemplate(): string;
+
+    /**
+     * @param string $filePath
      *
      * @return $this
      */
-    public function setPermittedMimes(array $permittedMimes): self;
+    public function setUrlTemplate(string $filePath): self;
 
     /**
      * @return bool
@@ -31,29 +38,9 @@ interface ConfiguratorInterface
     public function isClearable(): bool;
 
     /**
-     * @return string
-     */
-    public function getType(): string;
-
-    /**
-     * @param  string  $type
+     * @param bool $isClearable
      *
      * @return $this
      */
-    public function setType(string $type): self;
-
-    /**
-     * @return bool
-     */
-    public function isMain(): bool;
-
-    /**
-     * @return $this
-     */
-    public function makeIsMain(): self;
-
-    /**
-     * @return $this
-     */
-    public function disableMain(): self;
+    public function setClearable(bool $isClearable): self;
 }

@@ -11,17 +11,17 @@ use MediaManager\Config\ConfiguratorInterface;
 interface MediaServiceInterface
 {
     /**
-     * @param  ConfiguratorInterface  $configurator
-     * @param  Model  $model
-     * @param  UploadedFile  $file
+     * @param ConfiguratorInterface $configurator
+     * @param Model $model
+     * @param UploadedFile $file
      *
      * @return string|null
      */
     public function upload(ConfiguratorInterface $configurator, Model $model, UploadedFile $file): ?string;
 
     /**
-     * @param  ConfiguratorInterface  $configurator
-     * @param  Model  $model
+     * @param ConfiguratorInterface $configurator
+     * @param Model $model
      *
      * @return void
      */
